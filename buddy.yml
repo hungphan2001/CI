@@ -1,0 +1,17 @@
+- pipeline: "Build"
+  on: "CLICK"
+  refs:
+  - "refs/heads/main"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+  actions:
+  - action: "Execute: df -h"
+    type: "BUILD"
+    working_directory: "/buddy/aosp"
+    docker_image_name: "library/ubuntu"
+    docker_image_tag: "18.04"
+    execute_commands:
+    - "sudo apt update"
+    volume_mappings:
+    - "/:/buddy/aosp"
+    shell: "BASH"
