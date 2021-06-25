@@ -11,7 +11,7 @@
     docker_image_name: "library/ubuntu"
     docker_image_tag: "18.04"
     execute_commands:
-    - "sudo apt update"
+    - "apt update"
     volume_mappings:
     - "/:/buddy/aosp"
     shell: "BASH"
