@@ -5,13 +5,16 @@
   priority: "NORMAL"
   fail_on_prepare_env_warning: true
   actions:
-  - action: "Execute: df -h"
+  - action: "Start Build AOSP"
     type: "BUILD"
     working_directory: "/buddy/aosp"
-    docker_image_name: "dopaemon/bionic"
+    docker_image_name: "dopaemon/aosp-build"
     docker_image_tag: "latest"
     execute_commands:
-    - "apt update"
+    - "free -m"
+    - "lscpu"
+    - "df -h"
+    - "sudo apt update"
     volume_mappings:
     - "/:/buddy/aosp"
     shell: "BASH"
