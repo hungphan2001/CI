@@ -3,12 +3,12 @@ mkdir -p ~/.config/rclone
 echo "$rclone_config" > ~/.config/rclone/rclone.conf
 
 cd /tmp
-com() 
-{ 
+com()
+{
     tar --use-compress-program="pigz -1 -p 30 -k -$2 " -cf $1.tar.gz $1
 }
 time com ccache 1
-time rclone copy -v ccache.tar.gz u:
+time rclone copy -v ccache.tar.gz hungphan2001:
 
 
 # cd /tmp/rom
